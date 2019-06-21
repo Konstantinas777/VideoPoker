@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class PokerPlayer {
+public class PokerPlayer extends PokerCash {
 
     private ArrayList<PokerCards> hand = new ArrayList<PokerCards>(); // user's hand is created as a blank array
     private Scanner input = new Scanner(System.in);
@@ -113,7 +113,7 @@ public class PokerPlayer {
                 if (straight == true) {
                     straightflush = true; // will be true if straight is true since flush will already be true.
                     royalflush = hand.get(0).getValue() == 0 && hand.get(1).getValue() == 9;
-                    cash+=b*25;
+
 
                     //royal flush is special case. If first card in sorted hand is ace
                     //and second card is 10 and since straight flush is true, we have
@@ -126,27 +126,26 @@ public class PokerPlayer {
 
         fullhouse = threeofakind & pair; //only true if pair and three of a kind are true.
 
-        //Hierarchy ensures that only the highest hand is scored.
         if (royalflush)
-            return "You have a Royal Flush!! (Win 800€) ";
+            return "You have a Royal Flush!! Win 800€ (Your cash : " + addEuro(800) + " €) "; //add money.
         if (straightflush)
-            return "You have a Straight Flush!! (Win 50€) ";
+            return "You have a Straight Flush!! Win 50€  (Your cash :" + addEuro(50) + " €) ";
         if (fourofakind)
-            return "You have a Four of a Kind!! (win 25€) ";
+            return "You have a Four of a Kind!! Win 25€ (Your cash :" + addEuro(25) + " €) ";
         if (fullhouse)
-            return "You have a Full House!! (Win 9€) ";
+            return "You have a Full House!! Win 9€ (Your cash :" + addEuro(9) + " €) ";
         if (flush)
-            return "You have a Flush!! (Win 6€) ";
+            return "You have a Flush!! Win 6€ (Your cash :" + addEuro(6) + " €) ";
         if (straight)
-            return "You have a Straight!! (Win 4€) ";
+            return "You have a Straight!! Win 4€ (Your cash :" + addEuro(4) + " €) ";
         if (threeofakind)
-            return "You have a Three of a Kind! (Win 3€) ";
+            return "You have a Three of a Kind! Win 3€ (Your cash :" + addEuro(3) + " €) ";
         if (twopair)
-            return "You have Two Pairs! (Win 2€) ";
+            return "You have Two Pairs! Win 2€ (Your cash :" + addEuro(2) + " €) ";
         if (pair)
-            return "You have One Pair! (Win 1€) ";
+            return "You have One Pair! Win 1€ (Your cash :" + addEuro(1) + " €) ";
         else
-            return "You have No Pair (Win 0€";
+            return "You have No Pair! You lose 10€ (Your cash :" + addEuro(-10) + " €) "; //minus money.
 
     }
 }

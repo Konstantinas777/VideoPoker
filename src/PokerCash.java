@@ -1,18 +1,17 @@
-import javax.swing.*;
+
 
 public class PokerCash {
-    public static int cash=50;
+    public static int money = 50;
 
-    public static int getCash() {
-        return cash;
-    }
-
-    public PokerCash() {
-    }
-
-    public static void setCash(int cash) {
-        PokerCash.cash = cash;
+    public int minusEuro(int n) {
+        money = n - money;
+        return money;
     }
 
 
-            }
+    public static int addEuro(int n) {
+        money = n + money;
+        return money;
+    }
+
+}

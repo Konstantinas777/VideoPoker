@@ -18,6 +18,7 @@ public class PokerGame {
         }
 
         System.out.println("( Your cards are : \n");
+
         System.out.println(user.toString()); //shows user initial cards
 
         user.rejectCards();    // carries out method in player class if user rejects cards.
